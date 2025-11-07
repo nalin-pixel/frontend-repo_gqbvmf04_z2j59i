@@ -1,28 +1,46 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import ProductGrid from './components/ProductGrid';
+import Newsletter from './components/Newsletter';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Footer() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <footer className="border-t border-neutral-200 bg-white">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-8 text-sm text-neutral-600 md:flex-row md:px-6">
+        <p>© {new Date().getFullYear()} ModaBlu • Tutti i diritti riservati</p>
+        <div className="flex items-center gap-4">
+          <a href="#" className="hover:text-neutral-900">Privacy</a>
+          <a href="#" className="hover:text-neutral-900">Termini</a>
+          <a href="#" className="hover:text-neutral-900">Contatti</a>
         </div>
       </div>
-    </div>
-  )
+    </footer>
+  );
 }
 
-export default App
+export default function App() {
+  const [cart, setCart] = useState([]);
+
+  const handleAddToCart = (product) => {
+    setCart((prev) => {
+      const exists = prev.find((p) => p.id === product.id);
+      if (exists) {
+        return prev.map((p) => (p.id === product.id ? { ...p, qty: p.qty + 1 } : p));
+      }
+      return [...prev, { ...product, qty: 1 }];
+    });
+  };
+
+  return (
+    <div className="min-h-screen bg-white text-neutral-900">
+      <Navbar cartCount={cart.reduce((sum, p) => sum + p.qty, 0)} />
+      <main>
+        <Hero />
+        <ProductGrid onAddToCart={handleAddToCart} />
+        <Newsletter />
+      </main>
+      <Footer />
+    </div>
+  );
+}
