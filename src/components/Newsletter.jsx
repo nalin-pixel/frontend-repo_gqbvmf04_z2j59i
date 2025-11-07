@@ -13,9 +13,9 @@ export default function Newsletter() {
   if (submitted) {
     return (
       <section className="mx-auto max-w-7xl px-4 py-16 text-center md:px-6">
-        <div className="mx-auto max-w-xl rounded-2xl border border-neutral-200 bg-white px-6 py-12 shadow-sm">
-          <h3 className="font-display text-2xl font-semibold text-neutral-900">Grazie!</h3>
-          <p className="mt-2 text-neutral-600">Ti abbiamo iscritto alla nostra newsletter. Presto riceverai le novità e le offerte esclusive.</p>
+        <div className="mx-auto max-w-xl rounded-2xl border border-neutral-800 bg-neutral-900 px-6 py-12 shadow-sm">
+          <h3 className="font-display text-2xl font-semibold text-white">Sei dei nostri!</h3>
+          <p className="mt-2 text-neutral-300">Iscrizione completata. Riceverai news sui prossimi drop e codici esclusivi.</p>
         </div>
       </section>
     );
@@ -23,10 +23,10 @@ export default function Newsletter() {
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 md:px-6">
-      <div className="grid items-center gap-8 rounded-2xl border border-neutral-200 bg-white px-6 py-10 shadow-sm md:grid-cols-2 md:px-10">
+      <div className="grid items-center gap-8 rounded-2xl border border-neutral-800 bg-neutral-900 px-6 py-10 shadow-sm md:grid-cols-2 md:px-10">
         <div>
-          <h3 className="font-display text-2xl font-semibold tracking-tight text-neutral-900">Iscriviti e ottieni -10%</h3>
-          <p className="mt-2 text-sm text-neutral-600">Ricevi ispirazioni di stile, anteprime e promozioni nella tua casella di posta.</p>
+          <h3 className="font-display text-2xl font-semibold tracking-tight text-white">Unisciti alla community</h3>
+          <p className="mt-2 text-sm text-neutral-300">Drop segreti, early access e sconti solo per iscritti.</p>
         </div>
         <form onSubmit={handleSubmit} className="flex w-full flex-col gap-3 sm:flex-row">
           <input
@@ -34,11 +34,11 @@ export default function Newsletter() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="La tua email"
-            className="h-11 flex-1 rounded-md border border-neutral-300 px-3 text-sm outline-none ring-0 placeholder:text-neutral-400 focus:border-neutral-500"
+            className="h-11 flex-1 rounded-md border border-neutral-700 bg-neutral-950 px-3 text-sm text-white outline-none ring-0 placeholder:text-neutral-500 focus:border-neutral-500"
           />
           <button
             type="submit"
-            className="h-11 rounded-md bg-neutral-900 px-5 text-sm font-medium text-white hover:bg-neutral-800"
+            className="h-11 rounded-md bg-white px-5 text-sm font-medium text-neutral-900 hover:bg-neutral-200"
           >
             Iscrivimi
           </button>

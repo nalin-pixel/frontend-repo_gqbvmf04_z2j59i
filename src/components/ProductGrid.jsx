@@ -1,55 +1,55 @@
-const sampleProducts = [
+const products = [
   {
     id: 'p1',
-    name: 'Cappotto in Lana',
-    price: 169.9,
+    name: 'Hoodie Oversize Neon',
+    price: 89.9,
     image:
-      'https://images.unsplash.com/photo-1548883354-aa817a2e3b1a?q=80&w=1400&auto=format&fit=crop',
-    tag: 'Novità',
+      'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1400&auto=format&fit=crop',
+    tag: 'Nuovo',
   },
   {
     id: 'p2',
-    name: 'Maglione Oversize',
-    price: 79.9,
+    name: 'Puffer Jacket Reflective',
+    price: 149.9,
     image:
-      'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1400&auto=format&fit=crop',
-    tag: 'Best Seller',
+      'https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1400&auto=format&fit=crop',
+    tag: 'Drop',
   },
   {
     id: 'p3',
-    name: 'Pantalone Tailored',
-    price: 99.9,
+    name: 'Cargo Pants Tech',
+    price: 79.9,
     image:
       'https://images.unsplash.com/photo-1583394293214-28ded15ee548?q=80&w=1400&auto=format&fit=crop',
   },
   {
     id: 'p4',
-    name: 'Camicia Oxford',
-    price: 69.9,
+    name: 'Sneakers Mono Chunky',
+    price: 119.9,
     image:
-      'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?q=80&w=1400&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1544441893-226bad4cb445?q=80&w=1400&auto=format&fit=crop',
   },
 ];
 
 export default function ProductGrid({ onAddToCart }) {
   return (
-    <section id="novita" className="mx-auto max-w-7xl px-4 py-12 md:px-6">
+    <section id="drop" className="mx-auto max-w-7xl px-4 py-12 md:px-6">
       <div className="mb-6 flex items-end justify-between">
         <div>
-          <h2 className="font-display text-2xl font-semibold tracking-tight text-neutral-900 md:text-3xl">
-            Scelti per te
+          <h2 className="font-display text-2xl font-semibold tracking-tight text-white md:text-3xl">
+            Drop in evidenza
           </h2>
-          <p className="mt-1 text-sm text-neutral-600">I capi più amati della settimana</p>
+          <p className="mt-1 text-sm text-neutral-400">Le scelte più hype della settimana</p>
         </div>
-        <a href="#" className="text-sm font-medium text-neutral-900 hover:underline">
+        <a href="#" className="text-sm font-medium text-neutral-200 hover:text-white">
           Vedi tutti
         </a>
       </div>
 
       <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
-        {sampleProducts.map((p) => (
+        {products.map((p) => (
           <article key={p.id} className="group">
-            <div className="relative overflow-hidden rounded-xl border border-neutral-200 bg-white">
+            <div className="relative overflow-hidden rounded-xl border border-neutral-800 bg-neutral-900">
               <img
                 src={p.image}
                 alt={p.name}
@@ -57,19 +57,19 @@ export default function ProductGrid({ onAddToCart }) {
                 loading="lazy"
               />
               {p.tag && (
-                <span className="absolute left-2 top-2 rounded-full bg-white/90 px-2 py-1 text-xs font-medium text-neutral-900">
+                <span className="absolute left-2 top-2 rounded-full bg-neutral-950/80 px-2 py-1 text-xs font-medium text-white ring-1 ring-white/10">
                   {p.tag}
                 </span>
               )}
             </div>
             <div className="mt-3 flex items-start justify-between gap-2">
               <div>
-                <h3 className="text-sm font-medium text-neutral-900">{p.name}</h3>
-                <p className="mt-1 text-sm text-neutral-600">€ {p.price.toFixed(2)}</p>
+                <h3 className="text-sm font-medium text-white">{p.name}</h3>
+                <p className="mt-1 text-sm text-neutral-400">€ {p.price.toFixed(2)}</p>
               </div>
               <button
                 onClick={() => onAddToCart?.(p)}
-                className="rounded-md bg-neutral-900 px-3 py-2 text-xs font-medium text-white hover:bg-neutral-800"
+                className="rounded-md bg-white px-3 py-2 text-xs font-medium text-neutral-900 hover:bg-neutral-200"
               >
                 Aggiungi
               </button>
